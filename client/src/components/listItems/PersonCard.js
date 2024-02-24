@@ -4,11 +4,13 @@ import { useState } from 'react'
 import UpdatePerson from '../forms/UpdatePerson'
 import { EditOutlined } from '@ant-design/icons'
 import PersonCars from '../lists/PersonCars'
+import { Link, useLocation } from 'react-router-dom';
 
 const PersonCard = props => {
     const styles = getStyles()
     const { id, firstName, lastName } = props
     const [editMode, setEditMode] = useState(false)
+    const location = useLocation()
 
     const handleButtonClick = () => {
         setEditMode(!editMode)
@@ -32,7 +34,12 @@ const PersonCard = props => {
                         <DeletePerson id={id} />
                     ]}>
                     <PersonCars personId={id} />
-                    <a href="#">Learn More</a>
+
+                    {location.pathname === `/people/${id}` ? (
+                        <Link to="/">Go Back Home</Link>
+                    ) : (
+                        <Link to={`/people/${id}`}>Learn More</Link>
+                    )}
                 </Card>
             )}
         </div>

@@ -10,12 +10,8 @@ const PersonCars = props => {
     variables: { personId },
   });
 
-  console.log('personId', personId)
-  
   if (loading) return "Loading..."
   if (error) return `Error fetching cars! (${error.message})`
-
-  console.log('data1', data)
 
   return (
     <List grid={{ gutter:20, column:1 }} style={styles.list}>
