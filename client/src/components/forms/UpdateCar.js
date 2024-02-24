@@ -31,7 +31,9 @@ const UpdateCar = props => {
     );
 
     const onFinish = values => {
-        const { year, make, model, price } = values
+        const { make, model } = values
+        const year = parseInt(values.year, 10);
+        const price = parseFloat(values.price);
         const personId = selectedPerson.id;
     
         updateCar({

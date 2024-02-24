@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { Button, Form, Input, Dropdown, Menu } from 'antd'
 import { useMutation } from '@apollo/client'
-import { ADD_CAR, GET_CARS, GET_PERSON_CARS } from '../graphql/queries'
+import { ADD_CAR, GET_PERSON_CARS } from '../graphql/queries'
 import { CarTitle } from '../layout/Title'
 import { useQuery } from "@apollo/client"
 import { GET_PEOPLE } from "../graphql/queries"
@@ -39,7 +39,9 @@ const AddCar = () => {
   );
 
   const onFinish = values => {
-    const { year, make, model, price } = values
+    const { make, model } = values
+    const year = parseInt(values.year, 10);
+    const price = parseFloat(values.price);
     const personId = selectedPerson.id;
 
     addCar({
