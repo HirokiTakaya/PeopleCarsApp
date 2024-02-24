@@ -103,12 +103,12 @@ const people = [
     }
 
     type Car {
-        id: String!
-        year: String!
-        make: String!
-        model: String!
-        price: String!
-        personId: String!
+      id: String!
+      year: Int!
+      make: String!
+      model: String!
+      price: Float!
+      personId: String!
     }
 
     type Query {
@@ -123,8 +123,8 @@ const people = [
         addPerson(id: String!, firstName: String!, lastName: String!): Person
         updatePerson(id: String!, firstName: String!, lastName: String!): Person
         deletePerson(id: String!): Person
-        addCar(id: String!, year: String!, make: String!, model: String!, price: String!, personId: String!): Car
-        updateCar(id: String!, year: String!, make: String!, model: String!, price: String!, personId: String!): Car
+        addCar(id: String!, year: Int!, make: String!, model: String!, price: Float!, personId: String!): Car
+        updateCar(id: String!, year: Int!, make: String!, model: String!, price: Float!, personId: String!): Car
         deleteCar(id: String!): Car
         deletePersonCars(personId: String!): [Car]
     }
